@@ -10,7 +10,7 @@ export const invitation = {
   },
   links: {
     rsvp: 'https://forms.gle/vgFvcwCWrVe28Jgq8',
-    location: 'https://share.google/PvXIZCRGW9sOzIGuG',
+    location: 'https://maps.app.goo.gl/opwJpKQBLowBw1vM8',
   },
   notices: {
     title: 'Avisos importantes',
