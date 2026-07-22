@@ -4,7 +4,7 @@
 @import '@fontsource/nunito/700.css';
 @import '@fontsource/nunito/800.css';
 
-:root { --background:#f4efff; --background-soft:#fbf8ff; --lavender:#c8b5ec; --lavender-strong:#8e68c8; --pink:#c95793; --pink-soft:#f4b6d2; --blue:#8fd7f2; --blue-dark:#173b63; --yellow:#f6d47c; --white:#fff; --text:#25344d; }
+:root { --background:#f4efff; --background-soft:#fbf8ff; --lavender:#c8b5ec; --lavender-strong:#a783dc; --pink:#d86da6; --pink-soft:#f4b6d2; --blue:#8fd7f2; --blue-dark:#173b63; --yellow:#f6d47c; --white:#fff; --text:#25344d; }
 * { box-sizing:border-box; }
 html { min-width:320px; background:var(--background); color:var(--text); font-family:'Nunito',sans-serif; overflow-x:hidden; }
 html.modal-open { overflow:hidden; }
