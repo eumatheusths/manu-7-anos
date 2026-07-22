@@ -1,6 +1,6 @@
-# Convite da Manu — 7 anos
+# Convite da Manoella — 7 anos
 
-Site-convite estático, responsivo e acessível para o aniversário de 7 anos da Manu, com tema inspirado em Bluey e Bingo. O projeto usa Astro, TypeScript, HTML semântico e CSS nativo, sem banco de dados, rastreamento ou armazenamento de informações dos convidados.
+Site-convite estático, responsivo e acessível para o aniversário de 7 anos da Manoella, com tema inspirado em Bluey e Bingo. O projeto usa Astro, TypeScript, HTML semântico e CSS nativo, sem banco de dados, rastreamento ou armazenamento de informações dos convidados.
 
 ## Instalação e uso local
 
@@ -21,7 +21,7 @@ As imagens usadas no hero e no modal ficam em `src/assets/images/`. Para substit
 - `bluey-bingo-festa.jpeg`
 - `bluey-bingo-piscina.jpeg`
 
-O cartão mostrado no compartilhamento por WhatsApp fica em `public/og-convite-manu.jpg` e deve permanecer no formato 1200 × 630 px.
+O cartão mostrado no compartilhamento por WhatsApp fica em `public/og-convite-manoella.jpg` e deve permanecer no formato 1200 × 630 px.
 
 ## Validação
 

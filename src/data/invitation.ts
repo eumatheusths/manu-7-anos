@@ -1,5 +1,5 @@
 export const invitation = {
-  childName: 'Manu',
+  childName: 'Manoella',
   age: 7,
   theme: 'Bluey e Bingo',
   eyebrow: 'Este episódio de Bluey e Bingo se chama',
