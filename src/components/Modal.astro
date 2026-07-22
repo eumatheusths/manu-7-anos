@@ -1,0 +1,46 @@
+---
+import { X } from 'lucide-astro';
+interface Props { id: string; title: string; variant?: string; }
+const { id, title, variant = '' } = Astro.props;
+---
+
+<dialog id={id} class:list={['modal', variant]} aria-labelledby={`${id}-title`}>
+  <div class="modal-card">
+    <button class="modal-close" type="button" aria-label={`Fechar ${title}`}><X aria-hidden="true" /></button>
+    <h2 id={`${id}-title`}>{title}</h2>
+    <div class="modal-body"><slot /></div>
+  </div>
+</dialog>
+
+<script>
+  const lockPage = () => document.documentElement.classList.add('modal-open');
+  const unlockPage = () => {
+    if (!document.querySelector('dialog[open]')) document.documentElement.classList.remove('modal-open');
+  };
+  document.querySelectorAll<HTMLElement>('[data-modal-target]').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const dialog = document.getElementById(trigger.dataset.modalTarget ?? '') as HTMLDialogElement | null;
+      if (!dialog) return;
+      dialog.dataset.returnFocus = trigger.dataset.modalTarget ?? '';
+      dialog.showModal();
+      lockPage();
+      dialog.querySelector<HTMLButtonElement>('.modal-close')?.focus();
+    });
+  });
+  document.querySelectorAll<HTMLDialogElement>('dialog.modal').forEach((dialog) => {
+    dialog.querySelector<HTMLButtonElement>('.modal-close')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+    dialog.addEventListener('close', () => {
+      unlockPage();
+      document.querySelector<HTMLElement>(`[data-modal-target="${dialog.id}"]`)?.focus();
+    });
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    const openDialog = document.querySelector<HTMLDialogElement>('dialog.modal[open]');
+    if (openDialog) {
+      event.preventDefault();
+      openDialog.close();
+    }
+  });
+</script>

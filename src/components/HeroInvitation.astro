@@ -1,0 +1,21 @@
+---
+import { invitation } from '../data/invitation';
+import { Image } from 'astro:assets';
+import heroImage from '../assets/images/bluey-bingo-festa.jpeg';
+---
+
+<section class="hero" aria-labelledby="invitation-title">
+  <p class="eyebrow">{invitation.eyebrow}</p>
+  <div class="hero-art">
+    <Image
+      src={heroImage}
+      alt="Bluey e Bingo comemorando em um cenário de festa com arco-íris, balões e margaridas."
+      widths={[320, 480, 640, 800]}
+      sizes="(max-width: 600px) 92vw, 680px"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+  <h1 id="invitation-title"><span>{invitation.childName}</span><small>faz {invitation.age} anos</small></h1>
+  <p class="invitation-copy">{invitation.invitationText}</p>
+</section>

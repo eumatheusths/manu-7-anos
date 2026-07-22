@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DecorativeBackground from '../components/DecorativeBackground.astro';
+import HeroInvitation from '../components/HeroInvitation.astro';
+import EventDate from '../components/EventDate.astro';
+import ActionGrid from '../components/ActionGrid.astro';
+import Modal from '../components/Modal.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { invitation } from '../data/invitation';
+import { Image } from 'astro:assets';
+import poolImage from '../assets/images/bluey-bingo-piscina.jpeg';
+---
+
+<BaseLayout>
+  <DecorativeBackground />
+  <main class="container">
+    <HeroInvitation />
+    <EventDate />
+    <ActionGrid />
+  </main>
+
+  <Modal id="notices-modal" title={invitation.notices.title} variant="pool">
+    <Image
+      class="modal-illustration"
+      src={poolImage}
+      alt="Bluey e Bingo brincando juntos em uma piscina."
+      widths={[320, 480, 640]}
+      sizes="(max-width: 600px) 84vw, 500px"
+      loading="lazy"
+    />
+    <div class="notice-block">
+      <h3>🌊 {invitation.notices.poolTitle}</h3>
+      <p>{invitation.notices.poolText}</p>
+    </div>
+    <div class="notice-block">
+      <h3>🥤 {invitation.notices.drinksTitle}</h3>
+      <p>{invitation.notices.drinksText}</p>
+    </div>
+    <p class="modal-closing">✨ {invitation.notices.closing} 🎉🌊</p>
+  </Modal>
+
+  <Modal id="gifts-modal" title={invitation.gifts.title} variant="gifts">
+    <p>{invitation.gifts.intro}</p>
+    <p>{invitation.gifts.secondary}</p>
+    <ul class="gift-list">
+      {invitation.gifts.items.map((item, index) => (
+        <li><span aria-hidden="true">{['✨', '🏠', '💄', '👗', '👟'][index]}</span>{item}</li>
+      ))}
+    </ul>
+    <p class="modal-closing">{invitation.gifts.closing} 🎉</p>
+  </Modal>
+
+  <SiteFooter />
+</BaseLayout>

@@ -1,0 +1,12 @@
+---
+import { invitation } from '../data/invitation';
+---
+
+<section class="event-date" aria-label="Data e horário da festa">
+  <time datetime={invitation.date.isoDate}>
+    <span class="date-side">{invitation.date.month}</span>
+    <strong>{invitation.date.day}</strong>
+    <span class="date-side">{invitation.date.time}</span>
+  </time>
+  <p>Ano {invitation.date.year}</p>
+</section>

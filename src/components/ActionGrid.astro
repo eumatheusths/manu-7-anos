@@ -1,0 +1,11 @@
+---
+import ActionButton from './ActionButton.astro';
+import { invitation } from '../data/invitation';
+---
+
+<nav class="action-grid" aria-label="Ações do convite">
+  <ActionButton label="Avisos" description="Abrir avisos importantes" icon="info" type="modal" targetId="notices-modal" />
+  <ActionButton label="Presentes" description="Abrir dicas de presentes" icon="gift" type="modal" targetId="gifts-modal" />
+  <ActionButton label="Confirmar presença" description="Abrir formulário de confirmação" icon="heart" type="link" href={invitation.links.rsvp} />
+  <ActionButton label="Localização" description="Abrir localização da festa" icon="map" type="link" href={invitation.links.location} />
+</nav>

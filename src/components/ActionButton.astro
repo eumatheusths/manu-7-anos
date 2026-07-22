@@ -1,0 +1,18 @@
+---
+import { Info, Gift, Heart, MapPin } from 'lucide-astro';
+
+interface Props { label: string; description: string; icon: 'info' | 'gift' | 'heart' | 'map'; type: 'modal' | 'link'; href?: string; targetId?: string; }
+const { label, description, icon, type, href, targetId } = Astro.props;
+const Icon = { info: Info, gift: Gift, heart: Heart, map: MapPin }[icon];
+const shared = { class: 'action-button', 'aria-label': `${label}: ${description}` };
+---
+
+{type === 'link' ? (
+  <a {...shared} href={href} target="_blank" rel="noopener noreferrer">
+    <span class="action-icon"><Icon aria-hidden="true" /></span><span>{label}</span>
+  </a>
+) : (
+  <button {...shared} type="button" data-modal-target={targetId}>
+    <span class="action-icon"><Icon aria-hidden="true" /></span><span>{label}</span>
+  </button>
+)}
